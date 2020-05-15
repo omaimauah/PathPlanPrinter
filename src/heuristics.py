@@ -28,11 +28,14 @@ __version__ = "0.0.1"
 
 
 import path_planning as pp
+import math
 
 def manhattan(point,point2):
     """
         Function that performs Manhattan heuristic.
+        
     """
+    
     return 0
 
 pp.register_heuristic('manhattan', manhattan)
@@ -49,6 +52,11 @@ def euclidean(point, point2):
     """
         Function that performs euclidean heuristic.
     """
-    return 25
+    x1,y1 = point.grid_point
+    x2,y2 = point2.grid_point
+    
+    distancia = math.sqrt(((x2-x1)**2)+((y2-y1)**2))
+    
+    return distancia
 
 pp.register_heuristic('euclidean', euclidean)
