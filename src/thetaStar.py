@@ -53,6 +53,7 @@ def lineOfSight(S,S2,grid):
     x1,y1 = S2.grid_point
     dy = y1 - y0
     dx = x1 - x0
+    
     f = 0
     if dy < 0:
         dy = -dy
@@ -69,29 +70,29 @@ def lineOfSight(S,S2,grid):
         while x0 != x1:
             f = f + dy
             if(f >= dx):
-                if(grid[x0+((sx-1)/2)][y0+((sy-1)/2)]):
+                if(grid[x0+int((sx-1)/2)][y0+int((sy-1)/2)]):
                     return False
                 y0 = y0 + sy
                 f = f - dx
-            if ( (f!=0) and (grid[x0+((sx-1)/2)][y0+((sy-1)/2)]) ):
+            if ( (f!=0) and (grid[x0+int((sx-1)/2)][y0+int((sy-1)/2)]) ):
                 return False
-            if ((dy==0) and (grid[x0+(sx-1/2)][y0]) and (grid[x0+(sx-1)/2][y0-1])):
+            if ((dy==0) and (grid[x0+int(sx-1/2)][y0]) and (grid[x0+int((sx-1)/2)][y0-1])):
                 return False
         x0 = x0 + sx
     else:
         while y0 != y1:
             f = f + dx
             if(f >= dy):
-                if(grid[x0+(sx-1/2)][y0+((sy-1)/2)]):
+                if(grid[x0+int((sx-1)/2)][y0+int((sy-1)/2)]):
                     return False
                 x0 = x0 + sx
                 f = f - dy
-            if ((f!=0) and (grid[x0+(sx-1/2)][y0+((sy-1)/2)])):
+            if ((f!=0) and (grid[x0+int((sx-1)/2)][y0+int((sy-1)/2)])):
                 return False
-            if ((dx==0) and (grid[x0,(sy-1/2)][y0]) and (grid[x0-1,+(sy-1/2)][y0])):
+            if ((dx==0) and (grid[x0][int((sy-1)/2)+y0]) and (grid[x0-1][int((sy-1)/2)+y0])):
                 return False
         y0 = y0 + sy
-    return true
+    return True
         
     
 def thetaStar(start, goal, grid, heur='naive'):
