@@ -1,0 +1,2 @@
+Planificación del camino:
+5. La heurística naive (ingenua).
