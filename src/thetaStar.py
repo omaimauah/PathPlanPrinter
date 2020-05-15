@@ -1,14 +1,7 @@
 import path_planning as pp
 
 def children(point,grid):
-    """
-        Calculates the children of a given node over a grid.
-        Inputs:
-            - point: node for which to calculate children.
-            - grid: grid over which to calculate children.
-        Outputs:
-            - list of children for the given node.
-    """
+   
     x,y = point.grid_point
     if x > 0 and x < len(grid) - 1:
         if y > 0 and y < len(grid[0]) - 1:
@@ -96,19 +89,7 @@ def lineOfSight(S,S2,grid):
         
     
 def thetaStar(start, goal, grid, heur='naive'):
-    """
-        Executes the A* path planning algorithm over a given grid.
-        Inputs:
-            - start: node from which to start.
-            - goal: node to which it is desired to arrive.
-            - grid: grid over which to execute the algorithm
-            - heur: heuristic function to use for the algorithm,
-            expressed as a string. Results will vary depending on
-            it. Must be implemented separatedly.
-        Outputs:
-            - ordered list of nodes representing the shortest path found
-            from start to goal.
-    """
+    
     #The open and closed sets
     openset = set()
     closedset = set()
@@ -143,14 +124,12 @@ def thetaStar(start, goal, grid, heur='naive'):
                 if lineOfSight(current.parent,node,grid):
                     new_g = (current.parent).G + (current.parent).move_cost(node)
                     if node.G > new_g:
-                    #If so, update the node to have a new parent
                         node.G = new_g
                         node.parent = (current.parent)
                 else:
                     #Check if we beat the G score 
                     new_g = current.G + current.move_cost(node)
                     if node.G > new_g:
-                        #If so, update the node to have a new parent
                         node.G = new_g
                         node.parent = current
             else:
@@ -171,19 +150,7 @@ pp.register_search_method('Theta*', thetaStar)
     
                 
 def thetaStar_mesh(start, goal, grid, heur='naive'):
-    """
-        Executes the A* path planning algorithm over a given nav mesh.
-        Inputs:
-            - start: node from which to start.
-            - goal: node to which it is desired to arrive.
-            - grid: mesh over which to execute the algorithm
-            - heur: heuristic function to use for the algorithm,
-            expressed as a string. Results will vary depending on
-            it. Must be implemented separatedly.
-        Outputs:
-            - ordered list of nodes representing the shortest path found
-            from start to goal.
-    """
+
     #The open and closed sets
     openset = set()
     closedset = set()
@@ -215,12 +182,19 @@ def thetaStar_mesh(start, goal, grid, heur='naive'):
                 continue
             #Otherwise if it is already in the open set
             if node in openset:
-                #Check if we beat the G score 
-                new_g = current.G + current.move_cost(node)
-                if node.G > new_g:
-                    #If so, update the node to have a new parent
-                    node.G = new_g
-                    node.parent = current
+                if lineOfSight(current.parent,node,grid):
+                    new_g = (current.parent).G + (current.parent).move_cost(node)
+                    if node.G > new_g:
+                    
+                        node.G = new_g
+                        node.parent = (current.parent)
+                else:
+                   
+                    new_g = current.G + current.move_cost(node)
+                    if node.G > new_g:
+                        
+                        node.G = new_g
+                        node.parent = current
             else:
                 #If it isn't in the open set, calculate the G and H score for the node
                 node.G = current.G + current.move_cost(node)
