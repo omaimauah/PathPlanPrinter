@@ -48,47 +48,47 @@ def children(point,grid):
                      [(x+1, y), (x,y + 1), (x+1, y+1)]]
     return [link for link in links if link.value != 9]
 
-def lineOfSight(S, S', grid):
+def lineOfSight(S,S2,grid):
     x0,y0 = S.grid_point
-    x1,y1 = S'.grid_point
+    x1,y1 = S2.grid_point
     dy = y1 - y0
     dx = x1 - x0
     f = 0
-    if dy < 0
-        dy = - dy
+    if dy < 0:
+        dy = -dy
         sy = -1
     else:
         sy = 1
 
-    if dx < 0
-        dx = - dx
+    if dx < 0:
+        dx = -dx
         sx = -1
     else:
         sx = 1
-    if (dx >= dy)
-        while x0 != x1
+    if (dx >= dy):
+        while x0 != x1:
             f = f + dy
-            if(f >= dx)
-                if(grid(x0+(sx-1/2)),y0+((sy-1)/2))
+            if(f >= dx):
+                if(grid[x0+((sx-1)/2)][y0+((sy-1)/2)]):
                     return False
                 y0 = y0 + sy
                 f = f - dx
-            if ((f!=0) && (grid(x0+(sx-1/2)),y0+((sy-1)/2)))
+            if ( (f!=0) and (grid[x0+((sx-1)/2)][y0+((sy-1)/2)]) ):
                 return False
-            if ((dy=0) && (grid(x0+(sx-1/2)),y0) && (grid(x0+(sx-1)/2),y0-1))
+            if ((dy==0) and (grid[x0+(sx-1/2)][y0]) and (grid[x0+(sx-1)/2][y0-1])):
                 return False
         x0 = x0 + sx
     else:
-        while y0 != y1
+        while y0 != y1:
             f = f + dx
-            if(f >= dy)
-                if(grid(x0+(sx-1/2)),y0+((sy-1)/2))
+            if(f >= dy):
+                if(grid[x0+(sx-1/2)][y0+((sy-1)/2)]):
                     return False
                 x0 = x0 + sx
                 f = f - dy
-            if ((f!=0) && (grid(x0+(sx-1/2)),y0+((sy-1)/2)))
+            if ((f!=0) and (grid[x0+(sx-1/2)][y0+((sy-1)/2)])):
                 return False
-            if ((dx=0) && (grid(x0,(sy-1/2))+y0) && (grid(x0-1,+(sy-1/2))+y0))
+            if ((dx==0) and (grid[x0,(sy-1/2)][y0]) and (grid[x0-1,+(sy-1/2)][y0])):
                 return False
         y0 = y0 + sy
     return true
@@ -139,7 +139,7 @@ def thetaStar(start, goal, grid, heur='naive'):
                 continue
             #Otherwise if it is already in the open set
             if node in openset:
-                if lineOfSight(current.parent,node,grid)
+                if lineOfSight(current.parent,node,grid):
                     new_g = (current.parent).G + (current.parent).move_cost(node)
                     if node.G > new_g:
                     #If so, update the node to have a new parent
