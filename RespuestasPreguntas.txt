@@ -1,2 +1,2 @@
 Planificación del camino:
-5. La heurística naive (ingenua).
+5. La heurística que se usa por defecto es la de naive (ingenua).
