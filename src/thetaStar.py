@@ -145,7 +145,7 @@ def thetaStar(start, goal, grid, heur='naive'):
                     #If so, update the node to have a new parent
                         node.G = new_g
                         node.parent = (current.parent)
-                else
+                else:
                     #Check if we beat the G score 
                     new_g = current.G + current.move_cost(node)
                     if node.G > new_g:
