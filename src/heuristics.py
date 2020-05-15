@@ -35,8 +35,12 @@ def manhattan(point,point2):
         Function that performs Manhattan heuristic.
         
     """
+    x1,y1 = point.grid_point
+    x2,y2 = point2.grid_point
     
-    return 0
+    distanciaManhattan = abs(x1-x2) + abs(y1-y2)
+    
+    return distanciaManhattan
 
 pp.register_heuristic('manhattan', manhattan)
 
@@ -55,8 +59,8 @@ def euclidean(point, point2):
     x1,y1 = point.grid_point
     x2,y2 = point2.grid_point
     
-    distancia = math.sqrt(((x2-x1)**2)+((y2-y1)**2))
+    distanciaEuclidea = math.sqrt(((x2-x1)**2)+((y2-y1)**2))
     
-    return distancia
+    return distanciaEuclidea
 
 pp.register_heuristic('euclidean', euclidean)
