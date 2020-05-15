@@ -64,3 +64,17 @@ def euclidean(point, point2):
     return distanciaEuclidea
 
 pp.register_heuristic('euclidean', euclidean)
+
+def octile(point, point2):
+    
+    x1,y1 = point.grid_point
+    x2,y2 = point2.grid_point
+    
+    dX = abs(x1-x2)
+    dY = abs(y1-y2)
+
+    distanciaOctil = math.sqrt((1**2) + (1**2))+ min(dX,dY)+ abs(dX-dY)
+    
+    return distanciaOctil
+
+pp.register_heuristic('octile', octile)
