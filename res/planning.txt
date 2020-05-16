@@ -11,68 +11,82 @@ At all
 
 
 
-(move r p0000 p3030)
+%(move r p0000 p3030)
 
-10: (recharge_batteries )
+%10: (recharge_batteries )
 
-11: (recharge_batteries )
+%11: (recharge_batteries )
 
-12: (recharge_batteries )
+%12: (recharge_batteries )
 
-11: (move r p3030 p2025)
+%11: (move r p3030 p2025)
 
-13: (take_picture )
+%13: (take_picture )
 
-14: (recharge_batteries )
+%14: (recharge_batteries )
 
-15: (recharge_batteries )
+%15: (recharge_batteries )
 
-17: (move r p2025 p1010)
+%17: (move r p2025 p1010)
 
-16: (take_picture )
+%16: (take_picture )
 
-10: (recharge_batteries )
+%10: (recharge_batteries )
 
-11: (recharge_batteries )
+%11: (recharge_batteries )
 
-12: (recharge_batteries )
+%12: (recharge_batteries )
 
-13: (recharge_batteries )
+%13: (recharge_batteries )
 
-14: (recharge_batteries )
+%14: (recharge_batteries )
 
-15: (recharge_batteries )
+%15: (recharge_batteries )
 
-10: (recharge_batteries )
+%10: (recharge_batteries )
 
-11: (recharge_batteries )
+%11: (recharge_batteries )
 
-12: (recharge_batteries )
+%12: (recharge_batteries )
 
-13: (recharge_batteries )
+%13: (recharge_batteries )
 
-14: (recharge_batteries )
+%14: (recharge_batteries )
 
-15: (recharge_batteries )
+%15: (recharge_batteries )
 
-10: (recharge_batteries )
+%10: (recharge_batteries )
 
-11: (recharge_batteries )
+%11: (recharge_batteries )
 
-12: (recharge_batteries )
+%12: (recharge_batteries )
 
-13: (recharge_batteries )
+%13: (recharge_batteries )
 
-14: (recharge_batteries )
+%14: (recharge_batteries )
 
-15: (recharge_batteries )
+%15: (recharge_batteries )
 
-21: (move r p1010 p2530)
+%21: (move r p1010 p2530)
 
-22: (get_co2_reading )
+%22: (get_co2_reading )
 
-21: (move r p2530 p3010)
+%21: (move r p2530 p3010)
 
-23: (drill)
+%23: (drill)
 
-22: (take_picture )
+%22: (take_picture )
+
+0.001: (MOVER ROVER P0610 P2015 LENTO) [3.2000]
+3.202: (TOMARFOTOGRAFIAS ROVER P2015) [2.0000]
+3.203: (PERFORAR ROVER P2015) [5.0000]
+3.204: (REPOSTAR ROVER P2015) [3.0000]
+8.205: (COMUNICACIONATIERRA ROVER P2015) [4.0000]
+12.206: (ANALIZARMUESTRAS ROVER P2015) [3.0000]
+15.207: (EXPANDIRPANELES ROVER P2015) [3.0000]
+18.208: (MOVER ROVER P2015 P1611 LENTO) [2.4000]
+20.609: (TOMARFOTOGRAFIAS ROVER P1611) [2.0000]
+20.610: (PERFORAR ROVER P1611) [5.0000]
+25.611: (COMUNICACIONATIERRA ROVER P1611) [4.0000]
+29.612: (ANALIZARMUESTRAS ROVER P1611) [3.0000]
+32.613: (EXPANDIRPANELES ROVER P1611) [3.0000]
