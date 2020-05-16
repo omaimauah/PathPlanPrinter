@@ -30,7 +30,7 @@ def generate_task_list(filepath):
         if re.match(r'^\(\w(\w|_)*(\ *(\w(\w|_)*)?)*\)', re.sub(r"(\d(\.|\d)*: ) *", "", line)):
             split_line = re.sub(r"(\d(\.|\d)*: ) *", "", line).split()
             tasks.append(split_line[0].replace('(', '').replace(')', ''))
-            if tasks[-1].lower() == 'move':
+            if tasks[-1].lower() == 'mover':
                 coords = split_line[3].replace('p', '').replace(')', '')
                 tasks[-1] = (tasks[-1], (int(coords[:2]), int(coords[2:])))
     print("TASKS:")
@@ -48,7 +48,7 @@ def generate_task_list(filepath):
 # specific need.
 
 def visualize_paths_from_pddl(task_plan, path_to_map):
-    position = (10, 10) # change this to the starting position for your PDDL problem
+    position = (6, 10) # change this to the starting position for your PDDL problem
     pp.load_image(path_to_map)
     log = open("../out/planning_execution.log", "w+")
     task_number = 0
@@ -56,7 +56,7 @@ def visualize_paths_from_pddl(task_plan, path_to_map):
         task_number += 1
         log.write(str(task)+'\n')
         if type(task) is tuple: # Movement must be a tuple, so we are only interested in this case
-            if task[0] == 'move': # This is the action we were looking for
+            if task[0] == 'mover': # This is the action we were looking for
                 new_pos = task[1] # Get the destination for this action
                 print(position, '->', new_pos)
                 path = calculate_path(position, new_pos) # Calculate the path using a path planning algorithm
