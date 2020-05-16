@@ -50,7 +50,7 @@ def generate_task_list(filepath):
 def visualize_paths_from_pddl(task_plan, path_to_map):
     position = (6, 10) # change this to the starting position for your PDDL problem
     pp.load_image(path_to_map)
-    log = open("../out/planning_execution.log", "w+")
+    log = open("../PathPlanPrinter/out/planning_execution.log", "w+")
     task_number = 0
     for task in task_plan: # Iterate the whole task list
         task_number += 1
@@ -74,4 +74,4 @@ def visualize_paths_from_pddl(task_plan, path_to_map):
                 
 # Now we are outside the function. This is going to be ran regardless of everything else.
 task_plan = generate_task_list('../PathPlanPrinter/res/planning.txt') # Must be a path to a text file
-visualize_paths_from_pddl(task_plan, '../res/example.png') # path_to_map_file should be a path to an image
+visualize_paths_from_pddl(task_plan, '../PathPlanPrinter/res/example.png') # path_to_map_file should be a path to an image
