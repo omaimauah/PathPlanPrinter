@@ -73,5 +73,5 @@ def visualize_paths_from_pddl(task_plan, path_to_map):
     log.close()
                 
 # Now we are outside the function. This is going to be ran regardless of everything else.
-task_plan = generate_task_list('path_to_task_plan_file') # Must be a path to a text file
-visualize_paths_from_pddl(task_plan, 'path_to_map_file') # path_to_map_file should be a path to an image
+task_plan = generate_task_list('../res/planning.txt') # Must be a path to a text file
+visualize_paths_from_pddl(task_plan, '../res/example.png') # path_to_map_file should be a path to an image
