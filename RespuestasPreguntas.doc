@@ -1,0 +1,5 @@
+-Planificación del camino:
+5. La heurística que se usa por defecto es la de naive (ingenua).
+-Última cuestión:
+Lo que he implementado hasta ahora no es suficiente para controlar de forma autónoma el robot, 
+ya que quedaría el proceso de aprendizaje.
