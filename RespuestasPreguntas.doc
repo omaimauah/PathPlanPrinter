@@ -2,4 +2,5 @@
 5. La heurística que se usa por defecto es la de naive (ingenua).
 -Última cuestión:
 Lo que he implementado hasta ahora no es suficiente para controlar de forma autónoma el robot, 
-ya que quedaría el proceso de aprendizaje.
+ya que quedaría realizar el mismo proceso de integración que hemos realizado con la acción mover, con las 
+demás acciones y el proceso de aprendizaje del robot.
