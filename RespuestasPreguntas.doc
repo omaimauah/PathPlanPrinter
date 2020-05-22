@@ -1,5 +1,7 @@
 -Planificación del camino:
 5. La heurística que se usa por defecto es la de naive (ingenua).
+-Los ficheros con nombre AlgoritmoHeuristicaEJ2.7 son la respuesta del ejercicio 7 de la segunda parte de la práctica: Integration
+junto al fichero planning.txt.
 -Última cuestión:
 Lo que he implementado hasta ahora no es suficiente para controlar de forma autónoma el robot, 
 ya que quedaría realizar el mismo proceso de integración que hemos realizado con la acción mover, con las 
