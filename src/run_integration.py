@@ -56,7 +56,7 @@ def visualize_paths_from_pddl(task_plan, path_to_map):
         task_number += 1
         log.write(str(task)+'\n')
         if type(task) is tuple: # Movement must be a tuple, so we are only interested in this case
-            if task[0] == 'mover': # This is the action we were looking for
+            if task[0].lower() == 'mover': # This is the action we were looking for
                 new_pos = task[1] # Get the destination for this action
                 print(position, '->', new_pos)
                 path = calculate_path(position, new_pos) # Calculate the path using a path planning algorithm
